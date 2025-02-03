@@ -5,8 +5,8 @@
   border-radius: 16px;
   text-align: left;
 
-  max-width: 300px;
-
+  max-width: 400px;
+  width: 400px;
   overflow-wrap: break-word; /* Современный вариант */
 
   /* Если есть очень длинные слова (например, без пробелов) */

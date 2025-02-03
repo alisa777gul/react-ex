@@ -3,6 +3,7 @@ import { selectAllPosts } from '../../features/posts/postsSlice.js';
 import css from './PostsList.module.css';
 import PostAuthor from '../PostAuthor/PostAuthor.jsx';
 import TimeAgo from '../TimeAgo/TimeAgo.jsx';
+import ReactionButtons from '../ReactionButtons/ReactionButtons.jsx';
 
 const PostsList = () => {
   const posts = useSelector(selectAllPosts);
@@ -19,6 +20,7 @@ const PostsList = () => {
         <PostAuthor userId={post.userId} />
         <TimeAgo timestamp={post.date} />
       </p>
+      <ReactionButtons post={post} />
     </article>
   ));
 
