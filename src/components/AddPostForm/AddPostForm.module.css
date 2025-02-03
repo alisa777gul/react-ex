@@ -1,0 +1,22 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 400px;
+  max-width: 800px;
+}
+
+.label {
+  text-align: left;
+}
+
+.button {
+  border-radius: 12px;
+  border: 1px solid blue;
+}
+
+.textarea {
+  width: 400px;
+  resize: none;
+  max-width: 500px;
+}

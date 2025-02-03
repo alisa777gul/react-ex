@@ -1,0 +1,14 @@
+.post {
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 16px;
+  text-align: left;
+
+  max-width: 300px;
+
+  overflow-wrap: break-word; /* Современный вариант */
+
+  /* Если есть очень длинные слова (например, без пробелов) */
+  white-space: normal;
+}
