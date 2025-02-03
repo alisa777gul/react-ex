@@ -2,21 +2,58 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 400px;
-  max-width: 800px;
+  margin: 0 auto;
+  width: 320px;
+  padding: 16px;
+  align-items: stretch; /* Растягивает элементы */
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
 }
 
 .label {
-  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  border: 1px solid rgb(94, 89, 89);
+  border-radius: 6px;
+  outline: none;
+  padding: 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.textarea {
+  height: 100px;
+  resize: vertical;
+  max-width: 100%;
 }
 
 .button {
   border-radius: 12px;
   border: 1px solid blue;
+  padding: 8px;
+  height: 40px;
+  width: 100%;
+  background-color: blue;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
 }
 
-.textarea {
-  width: 400px;
-  resize: none;
-  max-width: 500px;
+.button:hover {
+  background-color: darkblue;
+}
+
+.button:disabled {
+  background-color: #ccc;
+  cursor: default;
+  border: 1px solid #999;
 }
