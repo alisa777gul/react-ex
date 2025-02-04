@@ -1,5 +1,14 @@
 .button {
   transition: none;
+  font-size: small;
+  background-color: transparent;
+}
+.buttons {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .button:hover {

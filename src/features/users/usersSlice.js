@@ -1,11 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchUsers } from './operations';
 
-const initialState = [
-  { id: '0', name: 'John Dell' },
-  { id: '1', name: 'Jane Delete' },
-  { id: '2', name: 'Johny Doll' },
-];
+const initialState = [];
 
 const usersSlice = createSlice({
   name: 'users',

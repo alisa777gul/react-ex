@@ -1,5 +1,5 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit';
-import { addNewPost, fetchPosts } from './operations';
+import { addNewPost, deletePost, fetchPosts, updatePost } from './operations';
 import { sub } from 'date-fns';
 
 const initialState = {
@@ -37,9 +37,12 @@ const postsSlice = createSlice({
     },
     reactionAdded(state, action) {
       const { postId, reaction } = action.payload;
-      const existingPost = state.posts.find(post => post.id === postId);
+      const existingPost = state.posts.find(post => post.id === Number(postId));
       if (existingPost) {
-        existingPost.reactions[reaction]++;
+        existingPost.reactions = {
+          ...existingPost.reactions,
+          [reaction]: existingPost.reactions[reaction] + 1,
+        };
       }
     },
   },
@@ -60,7 +63,7 @@ const postsSlice = createSlice({
           };
           return post;
         });
-        state.posts = state.posts.concat(loadedPosts);
+        state.posts = loadedPosts;
       })
       .addCase(fetchPosts.pending, state => {
         state.status = 'loading';
@@ -87,6 +90,28 @@ const postsSlice = createSlice({
       })
       .addCase(addNewPost.rejected, (state, action) => {
         (state.status = 'failed'), (state.error = action.error.message);
+      })
+      .addCase(updatePost.fulfilled, (state, action) => {
+        if (!action.payload) {
+          console.log('Update could not complete');
+          console.log(action.payload);
+          return;
+        }
+        const { id } = action.payload;
+        action.payload.date = new Date().toISOString();
+        const posts = state.posts.filter(post => post.id !== id);
+        state.posts = [...posts, action.payload];
+      })
+      .addCase(deletePost.fulfilled, (state, action) => {
+        if (!action.payload) {
+          console.log('Delete could not complete');
+          console.log(action.payload);
+          return;
+        }
+        const { id } = action.payload;
+
+        const posts = state.posts.filter(post => post.id !== id);
+        state.posts = posts;
       });
   },
 });
@@ -94,7 +119,7 @@ export const selectAllPosts = state => state.posts.posts;
 export const getPostsStatus = state => state.posts.status;
 export const getPostsError = state => state.posts.error;
 export const selectPostById = (state, postId) => {
-  state.posts.posts.find(post => post.id === postId);
+  return state.posts.posts.find(post => post.id === Number(postId));
 };
 
 export const { postAdded, reactionAdded } = postsSlice.actions;

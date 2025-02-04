@@ -27,7 +27,7 @@ const ReactionButtons = ({ post }) => {
     );
   });
 
-  return <div>{reactionButtons}</div>;
+  return <div className={css.buttons}>{reactionButtons}</div>;
 };
 
 export default ReactionButtons;

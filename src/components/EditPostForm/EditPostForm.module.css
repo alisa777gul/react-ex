@@ -57,3 +57,21 @@
   cursor: default;
   border: 1px solid #999;
 }
+
+.deleteButton {
+  border-radius: 12px;
+  border: 1px solid rgb(207, 45, 45);
+  padding: 8px;
+  height: 40px;
+  width: 100%;
+  background-color: rgb(221, 40, 40);
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.deleteButton:hover {
+  background-color: rgb(228, 98, 24);
+  border: 1px solid rgb(255, 255, 255);
+}

@@ -1,14 +1,31 @@
 .post {
-  border: 1px solid black;
-  padding: 10px;
-  margin-bottom: 12px;
-  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 12px;
   text-align: left;
-
+  border: 1px solid #ccc;
+  background: #f9f9f9;
   max-width: 400px;
   width: 400px;
   overflow-wrap: break-word; /* Современный вариант */
 
   /* Если есть очень длинные слова (например, без пробелов) */
   white-space: normal;
+}
+
+.postCredit {
+  display: flex;
+  gap: 12px;
+  font-size: small;
+  margin-top: 12px;
+  justify-content: stretch;
+  align-items: center;
+}
+
+.edit {
+  color: blueviolet;
+}
+
+.view {
+  color: blueviolet;
 }
