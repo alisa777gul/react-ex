@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { fetchUsers } from './operations';
 
 const initialState = [
   { id: '0', name: 'John Dell' },
@@ -10,6 +11,11 @@ const usersSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {},
+  extraReducers(builder) {
+    builder.addCase(fetchUsers.fulfilled, (state, action) => {
+      return action.payload;
+    });
+  },
 });
 
 export const selectAllUsers = state => state.users;
